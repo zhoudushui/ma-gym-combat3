@@ -53,6 +53,10 @@ register(
     entry_point='ma_gym.envs.combat:Combat',
 )
 register(
+    id='Combat3-v0',
+    entry_point='ma_gym.envs.combat3:Combat3',
+)
+register(
     id='PongDuel-v0',
     entry_point='ma_gym.envs.pong_duel:PongDuel',
 )

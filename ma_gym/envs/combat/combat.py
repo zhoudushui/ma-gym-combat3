@@ -55,7 +55,7 @@ class Combat(gym.Env):
         self._step_count = None
 
         self.action_space = MultiAgentActionSpace(
-            [spaces.Discrete(5 + self._n_opponents) for _ in range(self.n_agents)])
+            [spaces.Discrete(5 + self._n_opponents) for _ in range(self.n_agents)])#
 
         self.agent_pos = {_: None for _ in range(self.n_agents)}
         self.agent_prev_pos = {_: None for _ in range(self.n_agents)}

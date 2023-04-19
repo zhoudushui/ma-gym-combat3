@@ -45,7 +45,7 @@ class Combat(gym.Env):
     metadata = {'render.modes': ['human', 'rgb_array']}
 
     def __init__(self, grid_shape=(15, 15), n_agents=5, n_opponents=5, init_health=3, full_observable=False,
-                 step_cost=0, max_steps=100, step_cool=1):
+                 step_cost=0, max_steps=1000, step_cool=1):
         self._grid_shape = grid_shape
         self.n_agents = n_agents
         self._n_opponents = n_opponents
@@ -525,7 +525,7 @@ class Combat(gym.Env):
                     )
                 self._steps_beyond_done += 1
 
-        return self.get_agent_obs(), rewards, self._agent_dones, {'health': self.agent_health}
+        return self.get_agent_obs(), rewards, self._agent_dones, {'health': self.agent_health, 'win': True if sum([v for k, v in self.opp_health.items()]) == 0 else False}
 
     def seed(self, n=None):
         self.np_random, seed = seeding.np_random(n)
